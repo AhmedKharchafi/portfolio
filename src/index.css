@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FF9800;
+  --primary-dark: #F57C00;
+  --secondary: #263238;
+  --secondary-light: #37474F;
+  --text-light: #ECEFF1;
+  --text-dark: #263238;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--secondary);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+.section-padding {
+  padding: 6rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}
+
+.nav-link {
+  @apply relative cursor-pointer before:content-[''] before:absolute before:w-0 before:h-[2px] before:bottom-0 before:left-0 before:bg-primary-500 before:transition-all before:duration-300 hover:before:w-full;
+}
+
+.nav-link.active:before {
+  @apply w-full;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-10 before:content-[''] before:absolute before:left-0 before:top-2 before:w-3 before:h-3 before:bg-primary-600 before:rounded-full before:z-10;
+}
+
+.timeline-item:not(:last-child):after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 1px;
+  height: calc(100% - 10px);
+  background-color: theme('colors.primary.600');
+  transform: translateX(-50%);
+}
+
+.skill-bar {
+  @apply h-2 bg-secondary-700 rounded-full overflow-hidden;
+}
+
+.skill-progress {
+  @apply h-full bg-primary-500;
+}
+
+.card {
+  @apply bg-secondary-800 rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary-900/10;
+}
+
+.btn {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-secondary-900 hover:bg-primary-600;
+}
+
+.btn-outline {
+  @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-900/10;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 text-center text-white;
+}
+
+.section-title span {
+  @apply text-primary-500;
+}
+
+/* For scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
